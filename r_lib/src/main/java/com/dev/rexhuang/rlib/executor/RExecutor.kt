@@ -65,7 +65,7 @@ object RExecutor {
 
             override fun afterExecute(r: Runnable?, t: Throwable?) {
                 // 监控线程池耗时任务,线程创建数量,正在运行的数量
-//                RLog.et(TAG, "已执行完的任务优先级是: ${(r as PriorityRunnable).priority}")
+                RLog.et(TAG, "已执行完的任务优先级是: ${(r as PriorityRunnable).priority}")
             }
         }
     }
@@ -85,7 +85,7 @@ object RExecutor {
             val prepareRunnable = Runnable { onPrepare() }
             mainHandler.post(prepareRunnable)
 
-            val t = onBackground()
+            val t:T? = onBackground()
 
             // 移除所有消息.防止需要执行onCompleted了，onPrepare还没被执行，那就不需要执行了
             mainHandler.removeCallbacks(prepareRunnable)
@@ -96,8 +96,8 @@ object RExecutor {
 
         }
 
-        abstract fun onBackground(): T
-        abstract fun onCompleted(t: T)
+        abstract fun onBackground(): T?
+        abstract fun onCompleted(t: T?)
     }
 
     class PriorityRunnable(val priority: Int, private val runnable: Runnable) : Runnable,

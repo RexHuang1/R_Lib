@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".app.demo.executor.DemoExecutorActivity">
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/priority_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="按任务优先级执行"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/color_dd2"
+        app:cornerRadius="8dp"
+        tools:visibility="visible" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/pause_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="暂停或恢复线程池所有任务"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/color_dd2"
+        app:cornerRadius="8dp"
+        tools:visibility="visible" />
+
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/callable_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="异步任务结果回调主线程"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        app:backgroundTint="@color/color_dd2"
+        app:cornerRadius="8dp"
+        tools:visibility="visible" />
+</LinearLayout>

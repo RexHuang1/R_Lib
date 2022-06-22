@@ -1,4 +1,4 @@
-package com.dev.rexhuang.r_lib.app;
+package com.dev.rexhuang.r_lib.app.demo;
 
 import android.app.Application;
 
