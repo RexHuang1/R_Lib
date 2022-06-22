@@ -1,4 +1,4 @@
-package com.dev.rexhuang.rlib.log;
+package com.dev.rexhuang.rlib.util;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -11,11 +11,16 @@ import androidx.annotation.NonNull;
 
 /**
  * *  created by RexHuang
- * *  on 2020/6/1
+ * *  on 2020/6/12
  */
 public class RDisplayUtil {
 
     public static int dp2px(float dp, Resources resources) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
+    }
+
+    public static int dp2px(float dp) {
+        Resources resources = AppGlobals.get().getResources();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 
@@ -28,6 +33,7 @@ public class RDisplayUtil {
             return size.x;
         }
         return 0;
+
     }
 
     public static int getDisplayHeightInPx(@NonNull Context context) {
@@ -40,4 +46,5 @@ public class RDisplayUtil {
         }
         return 0;
     }
+
 }

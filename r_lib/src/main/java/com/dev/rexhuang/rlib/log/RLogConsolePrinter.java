@@ -1,7 +1,6 @@
 package com.dev.rexhuang.rlib.log;
 
 import android.util.Log;
-
 import androidx.annotation.NonNull;
 
 import com.dev.rexhuang.rlib.log.common.ILogPrinter;

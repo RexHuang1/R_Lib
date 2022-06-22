@@ -9,6 +9,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.dev.rexhuang.rlib.util.RDisplayUtil;
+
 /**
  * *  created by RexHuang
  * *  on 2020/6/1
