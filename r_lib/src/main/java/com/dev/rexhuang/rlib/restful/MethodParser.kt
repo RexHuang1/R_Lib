@@ -56,7 +56,7 @@ class MethodParser(
     }
 
     private fun parseMethodParameters(method: Method, args: Array<Any>) {
-        // 每次调用api接口时  应该吧上一次解析到的参数清理掉，因为methodParser存在复用
+        // 每次调用api接口时  应该把上一次解析到的参数清理掉，因为methodParser存在复用
         parameters.clear()
 
         val parameterAnnotations = method.parameterAnnotations
@@ -69,6 +69,7 @@ class MethodParser(
             )
         }
 
+        // args
         for (index in args.indices) {
             val annotationArray = parameterAnnotations[index]
             require(annotationArray.size <= 1) {
@@ -79,7 +80,7 @@ class MethodParser(
                 "8 basic types are supported for now,index=$index"
             }
             val annotation = annotationArray[0]
-            if (annotation is com.dev.rexhuang.rlib.restful.annotation.Field) {
+            if (annotation is Field) {
                 val name = annotation.value
                 parameters[name] = value.toString()
             } else if (annotation is Path) {
@@ -96,6 +97,9 @@ class MethodParser(
         }
     }
 
+    /**
+     * 判断入参是否为原始数据类型或String类型
+     */
     private fun isPrimitive(value: Any): Boolean {
         // String
         if (value.javaClass == String::class.java) {

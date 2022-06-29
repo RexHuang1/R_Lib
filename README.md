@@ -11,3 +11,12 @@
 3. RExecutor.execute(priority:Int, callable: Callable),priority表示优先级(0-9),默认值0。callable是有执行结果回调工作任务对象
 
 demo:DemoExecutorActivity.kt(app/src/main/java/com/dev/rexhuang/r_lib/app/demo/executor/DemoExecutorActivity.kt)
+
+#### 2. Util实用工具类
+位置：r_lib的util(r_lib/src/main/java/com/dev/rexhuang/rlib/util)包下
+
+##### 2.1 Util:获取全局application
+位置: r_lib/src/main/java/com/dev/rexhuang/rlib/util/AppGlobals.kt
+使用方法:
+1. Java调用:AppGlobals.INSTANCE.get()
+2. Kotlin调用:AppGlobals.get()

@@ -1,6 +1,5 @@
 package com.dev.rexhuang.rlib.restful
 
-import com.dev.rexhuang.rlib.cache.Cache
 import com.dev.rexhuang.rlib.cache.HiStorage
 import com.dev.rexhuang.rlib.executor.RExecutor
 import com.dev.rexhuang.rlib.log.RLog
@@ -8,7 +7,7 @@ import com.dev.rexhuang.rlib.restful.annotation.CacheStrategy
 import com.dev.rexhuang.rlib.util.MainHandler
 
 /**
- *
+ **  代理CallFactory创建出来的call对象,从而实现拦截器的派发动作
  **  created by RexHuang
  **  on 2020/8/5
  */

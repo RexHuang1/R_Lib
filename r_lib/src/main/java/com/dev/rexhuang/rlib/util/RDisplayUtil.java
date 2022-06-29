@@ -20,7 +20,7 @@ public class RDisplayUtil {
     }
 
     public static int dp2px(float dp) {
-        Resources resources = AppGlobals.get().getResources();
+        Resources resources = AppGlobals.INSTANCE.get().getResources();
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 

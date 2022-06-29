@@ -18,7 +18,7 @@ abstract class CacheDatabase : RoomDatabase() {
         }
 
         init {
-            val context = AppGlobals.get().applicationContext
+            val context = AppGlobals.get()!!.applicationContext
             database =
                 Room.databaseBuilder(context, CacheDatabase::class.java, "howow_cache").build()
         }
