@@ -10,7 +10,6 @@ import java.io.Serializable
  **  on 2020/9/8
  */
 @Entity(tableName = "cache")
-
 class Cache :Serializable{
     @PrimaryKey(autoGenerate = false)
     @NonNull

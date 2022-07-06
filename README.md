@@ -31,5 +31,5 @@ demo:DemoExecutorActivity.kt(app/src/main/java/com/dev/rexhuang/r_lib/app/demo/e
 2. Kotlin调用:RStorage.save(key,data)/get(key)/delete(key)
 原理: Room数据库,将key和data封装为Cache对象,存放在Room数据库的cache表中
 **注意:**
-1. data对象需要序列化
+1. data对象需要序列化(实现Serializable接口)
 2. 需要在非UI线程使用RStorage(因为Room数据库的限制)
