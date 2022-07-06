@@ -26,7 +26,7 @@ public abstract class RLogConfig {
     }
 
     public boolean includeThread() {
-        return false;
+        return true;
     }
 
     public int stackTraceDepth() {

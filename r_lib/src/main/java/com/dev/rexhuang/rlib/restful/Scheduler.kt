@@ -1,6 +1,6 @@
 package com.dev.rexhuang.rlib.restful
 
-import com.dev.rexhuang.rlib.cache.HiStorage
+import com.dev.rexhuang.rlib.cache.RStorage
 import com.dev.rexhuang.rlib.executor.RExecutor
 import com.dev.rexhuang.rlib.log.RLog
 import com.dev.rexhuang.rlib.restful.annotation.CacheStrategy
@@ -79,7 +79,7 @@ class Scheduler(
             ) {
                 if (response.data != null) {
                     RExecutor.execute(runnable = Runnable {
-                        HiStorage.saveCache(request.getCacheKey(), response.data)
+                        RStorage.saveCache(request.getCacheKey(), response.data)
                     })
                 }
             }
@@ -89,7 +89,7 @@ class Scheduler(
             // HiStorage 查询缓存需要提供一个cache key
             // request url+ 参数
             val cacheKey = request.getCacheKey()
-            val cache = HiStorage.getCache<T>(cacheKey)
+            val cache = RStorage.getCache<T>(cacheKey)
             val cacheResponse = RResponse<T>()
             cacheResponse.data = cache
             cacheResponse.code = RResponse.CACHE_SUCCESS

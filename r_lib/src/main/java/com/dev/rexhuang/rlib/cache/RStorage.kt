@@ -10,7 +10,7 @@ import java.lang.Exception
  **  created by RexHuang
  **  on 2020/9/8
  */
-object HiStorage {
+object RStorage {
     fun <T> saveCache(key: String, body: T) {
         val cache = Cache()
         cache.key = key
@@ -22,15 +22,18 @@ object HiStorage {
         val cache = CacheDatabase.get().cacheDao.getCache(key)
         return (if (cache?.data != null) {
             toObject(cache.data)
-        } else null) as T
+        } else null) as? T
     }
 
-    fun delete(key: String){
+    fun deleteCache(key: String){
         val cache = Cache()
         cache.key = key
         CacheDatabase.get().cacheDao.deleteCache(cache)
     }
 
+    /**
+     * 将任意可序列化对象转换为二进制数组的形式
+     */
     private fun <T> toByteArray(body: T): ByteArray? {
         var baos: ByteArrayOutputStream? = null
         var oos: ObjectOutputStream? = null
@@ -49,6 +52,10 @@ object HiStorage {
         return ByteArray(0)
     }
 
+
+    /**
+     * 将二进制数组形式的对象还原为原来的对象
+     */
     private fun toObject(data: ByteArray?): Any? {
         var bais: ByteArrayInputStream? = null
         var ois: ObjectInputStream? = null
