@@ -24,6 +24,16 @@ public class RDisplayUtil {
         return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, resources.getDisplayMetrics());
     }
 
+    public static int sp2px(float dp) {
+        Resources resources = AppGlobals.INSTANCE.get().getResources();
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, dp, resources.getDisplayMetrics());
+    }
+
+    /**
+     * 获取当前上下文对象window的宽度
+     * @param context
+     * @return px值
+     */
     public static int getDisplayWidthInPx(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm != null) {
@@ -36,6 +46,11 @@ public class RDisplayUtil {
 
     }
 
+    /**
+     * 获取当前上下文对象window的高度
+     * @param context
+     * @return px值
+     */
     public static int getDisplayHeightInPx(@NonNull Context context) {
         WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
         if (wm != null) {
@@ -45,6 +60,20 @@ public class RDisplayUtil {
             return size.y;
         }
         return 0;
+    }
+
+    /**
+     * 获取状态栏的高度,主要用于替换状态栏
+     * @return
+     */
+    public static int getStatusBarDimensionPx() {
+        int statusBarHeight = 0;
+        Resources res = AppGlobals.INSTANCE.get().getResources();
+        int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            statusBarHeight = res.getDimensionPixelSize(resourceId);
+        }
+        return statusBarHeight;
     }
 
 }
