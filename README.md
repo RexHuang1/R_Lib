@@ -23,6 +23,20 @@ demo:DemoExecutorActivity.kt(app/src/main/java/com/dev/rexhuang/r_lib/app/demo/e
 1. Java调用:AppGlobals.INSTANCE.get()
 2. Kotlin调用:AppGlobals.get()
 
+##### 2.2 Util:获取全局Res(RResUtil)
+主要用于在全局获取Res对象(防止在非Activity等不能获得上下文的情况需要获得资源对象)
+位置: r_lib/src/main/java/com/dev/rexhuang/rlib/util/RResUtil.kt
+使用方法:
+1. Java调用:RResUtil.INSTANCE.getString()/getColor()/getColorStateList()/getDrawable()
+2. Kotlin调用:RResUtil.getString()/getColor()/getColorStateList()/getDrawable()
+
+##### 2.3 Util:根据百分比计算出start --> end 之间的中间色(ColorUtil)
+主要用于根据百分比获取两种颜色的渐变色
+位置: r_lib/src/main/java/com/dev/rexhuang/rlib/util/ColorUtil.kt
+使用方法:
+1. Java调用:ColorUtil.INSTANCE.getCurrentColor(startColor: Int, endColor: Int, fraction: Float)
+2. Kotlin调用:ColorUtil.getCurrentColor(startColor: Int, endColor: Int, fraction: Float)
+
 #### 3.通用缓存组件(RStorage)
 主要用于快速缓存数据在本地,key(String字符串形式)为缓存的关键字,data(Bytearray二进制数组形式)为目标数据
 位置: r_lib/src/main/java/com/dev/rexhuang/rlib/cache
